@@ -1,0 +1,9 @@
+:root {
+  --mdc-theme-primary: #81C14B;
+  --mdc-theme-secondary: #1B6B12;
+}
+
+#login-form > button {
+  background-color: var(--mdc-theme-secondary);
+  margin-top: 8px;
+}
