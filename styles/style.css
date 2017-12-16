@@ -7,3 +7,62 @@
   background-color: var(--mdc-theme-secondary);
   margin-top: 8px;
 }
+
+main {
+  text-align: center;
+  margin-left: 250px;
+}
+
+ul {
+  text-align: center;
+}
+
+.sidebar {
+  background-color: #104259;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar i {
+  margin-top: 95px;
+  justify-content: center;
+  margin-left: 85px;
+  background: #ffffff;
+  width: 80px;
+  height: 80px;
+  color: black;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  display: block;
+  text-align: center;
+  line-height: 80px;
+}
+
+.pagination {
+  padding-left: 0;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.pagination .page a {
+  float: left;
+  margin-top: -20px;
+}
+
+.disabled a {
+  color: #aaa;
+}
+
+.active a {
+  color: var(--mdc-theme-secondary);
+}
