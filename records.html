@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
   </head>
 <nav class="sidebar">
-  <i id="home" class="material-icons">add</i> </br>
+  <i id="add" class="material-icons">add</i> </br>
   <i id="download" class="material-icons">file_download</i> </br>
   <i id="home" class="material-icons">home</i>
 </nav>
@@ -29,3 +29,13 @@
     <li class="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </main>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    require('./navService.js')
+  </script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script>window.mdc.autoInit();</script>
+
+</html>

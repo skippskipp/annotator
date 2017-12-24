@@ -18,5 +18,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.7.9"
+  },
+  "dependencies": {
+    "@material/form-field": "^0.27.0"
   }
 }

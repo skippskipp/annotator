@@ -13,19 +13,59 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
   </head>
 <nav class="sidebar">
-  <i id="home" class="material-icons">add</i> </br>
+  <i id="add" class="material-icons">add</i> </br>
   <i id="download" class="material-icons">file_download</i> </br>
   <i id="home" class="material-icons">home</i>
 </nav>
 <main>
-  <h3>Your Records</h3>
-  <ul class="pagination">
-    <li class="disabled previous"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active page"><a href="#!">1</a></li>
-    <li class="page"><a href="#!">2</a></li>
-    <li class="page"><a href="#!">3</a></li>
-    <li class="page"><a href="#!">4</a></li>
-    <li class="page"><a href="#!">5</a></li>
-    <li class="next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+  <h3>Add Annotation</h3>
+  <body class="mdc-typography">
+      <form action="#" id="newrecord-form">
+        <div>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="title" type="text" class="mdc-text-field__input">
+              <label for="title" class="mdc-text-field__label">
+                TITLE
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+        </br>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="authors" type="text" class="mdc-text-field__input">
+              <label for="authors" class="mdc-text-field__label">
+                AUTHORS
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit"
+                class="mdc-button
+                       mdc-button--raised
+                       mdc-ripple-surface"
+                id="saveBtn"
+                data-mdc-auto-init="MDCRipple">
+          SAVE
+        </button>
+        <button type="submit"
+                class="mdc-button
+                       mdc-button--raised
+                       mdc-ripple-surface"
+                id="resetBtn"
+                data-mdc-auto-init="MDCRipple">
+          RESET
+        </button>
+    </form>
 </main>
+  <script>
+    require('./renderer.js')
+    require('./navService.js')
+    require('./recordService.js')
+  </script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script>window.mdc.autoInit();</script>
+</html>
