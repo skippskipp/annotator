@@ -65,10 +65,9 @@ tablePut = function addTable(data) {
         for (j = 0; j < heading.length; j++) {
             var cell = document.createElement('TD')
             cell.appendChild(document.createTextNode(titles[i]));
+            cell.appendChild(document.createTextNode(authors[i]));
+            cell.appendChild(document.createTextNode(years[i]));
             tr.appendChild(cell)
-            var authorCell = document.createElement('TD')
-            authorCell.appendChild(document.createTextNode(authors[i]));
-            tr.appendChild(authorCell)
         }
         tableBody.appendChild(tr);
       }
