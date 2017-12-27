@@ -46,6 +46,7 @@ ul {
   display: block;
   text-align: center;
   line-height: 80px;
+  cursor: pointer;
 }
 
 .pagination {

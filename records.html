@@ -11,6 +11,7 @@
     href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 <nav class="sidebar">
   <i id="add" class="material-icons">add</i> </br>
@@ -19,6 +20,8 @@
 </nav>
 <main>
   <h3>Your Records</h3>
+    <div id ="database">
+    </div>
   <ul class="pagination">
     <li class="disabled previous"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active page"><a href="#!">1</a></li>
@@ -34,6 +37,7 @@
     // You can also require other files to run in this process
     require('./renderer.js')
     require('./navService.js')
+    require('./tableService.js')
   </script>
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script>window.mdc.autoInit();</script>
