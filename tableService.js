@@ -17,15 +17,24 @@ snapshotToArray = function(snapshot) {
 
 annotations.on('value', function(snapshot) {
     var data = snapshotToArray(snapshot);
-    var dataArray = Array.from(data);
-    console.log(dataArray);
-    tablePut(dataArray);
+    console.log(data);
+    tablePut(data);
 });
 
-tablePut = function addTable(dataArray) {
+tablePut = function addTable(data) {
+    var objArray = Object.values(data);
+    var titles = objArray.map(a => a.title);
+    var authors = objArray.map(a => a.authors);
+    var years = objArray.map(a => a.year);
+    // var dataArray = Object.values(objArray);
+    console.log(titles);
+    console.log(authors);
+    console.log(years);
     var myTableDiv = document.getElementById("database")
     var table = document.createElement('TABLE')
     var tableBody = document.createElement('TBODY')
+
+    var dataArray = [];
 
     // table.border = '1'
     table.appendChild(tableBody);
@@ -51,12 +60,15 @@ tablePut = function addTable(dataArray) {
     }
 
     //TABLE ROWS
-    for (i = 0; i < dataArray.length; i++) {
+    for (i = 0; i < titles.length; i++) {
         var tr = document.createElement('TR');
-        for (j = 0; j < dataArray[i].length; j++) {
-            var td = document.createElement('TD')
-            td.appendChild(document.createTextNode(dataArray[i][j]));
-            tr.appendChild(td)
+        for (j = 0; j < heading.length; j++) {
+            var cell = document.createElement('TD')
+            cell.appendChild(document.createTextNode(titles[i]));
+            tr.appendChild(cell)
+            var authorCell = document.createElement('TD')
+            authorCell.appendChild(document.createTextNode(authors[i]));
+            tr.appendChild(authorCell)
         }
         tableBody.appendChild(tr);
       }
