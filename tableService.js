@@ -1,7 +1,7 @@
-
 var myFirebase = firebase.database().ref();
 var annotations = myFirebase.child("annotations");
 
+//Fetches snapshot of Firebase data and converts into an array of annotation objects
 snapshotToArray = function(snapshot) {
     var returnArr = [];
 
@@ -15,39 +15,20 @@ snapshotToArray = function(snapshot) {
     return returnArr;
 };
 
-annotations.on('value', function(snapshot) {
-    var data = snapshotToArray(snapshot);
-    console.log(data);
-    tablePut(data);
-});
-
+//Receives the Firebase data snapshot as an array and builds the HTML table with values of interest.
 tablePut = function addTable(data) {
-    var objArray = Object.values(data);
-    var titles = objArray.map(a => a.title);
-    var authors = objArray.map(a => a.authors);
-    var years = objArray.map(a => a.year);
-    // var dataArray = Object.values(objArray);
-    console.log(titles);
-    console.log(authors);
-    console.log(years);
+
     var myTableDiv = document.getElementById("database")
     var table = document.createElement('TABLE')
     var tableBody = document.createElement('TBODY')
 
-    var dataArray = [];
-
-    // table.border = '1'
     table.appendChild(tableBody);
 
+    //TABLE COLUMN HEADERS
     var heading = new Array()
     heading[0] = "Title"
     heading[1] = "Authors"
     heading[2] = "Year"
-
-    // var stock = new Array ;
-    // stock[0] = new Array("Veggies", "88.625", "85.50", "85.81", "988")
-    // stock[1] = new Array("Veggies", "88.625", "85.50", "85.81", "988")
-    // stock[2] = new Array("Colors", "88.625", "85.50", "85.81", "989")
 
     //TABLE COLUMNS
     var tr = document.createElement('TR');
@@ -60,16 +41,27 @@ tablePut = function addTable(data) {
     }
 
     //TABLE ROWS
-    for (i = 0; i < titles.length; i++) {
-        var tr = document.createElement('TR');
-        for (j = 0; j < heading.length; j++) {
-            var cell = document.createElement('TD')
-            cell.appendChild(document.createTextNode(titles[i]));
-            cell.appendChild(document.createTextNode(authors[i]));
-            cell.appendChild(document.createTextNode(years[i]));
-            tr.appendChild(cell)
-        }
-        tableBody.appendChild(tr);
+    for (entry of data) {
+      var tr = document.createElement('TR');
+      var titleCell = document.createElement('td');
+      titleCell.textContent = entry.title;
+      tr.appendChild(titleCell);
+
+      var authorCell = document.createElement('td');
+      authorCell.textContent = entry.authors;
+      tr.appendChild(authorCell);
+
+      var yearCell = document.createElement('td');
+      yearCell.textContent = entry.year;
+      tr.appendChild(yearCell);
+      tableBody.appendChild(tr);
       }
-    myTableDiv.appendChild(table)
+
+    myTableDiv.appendChild(table);
     };
+
+//Calls the `tablePut` function on the Firebase snapshot.
+annotations.on('value', function(snapshot) {
+    var data = snapshotToArray(snapshot);
+    tablePut(data);
+});
