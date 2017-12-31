@@ -35,7 +35,7 @@ annotations.once('value', function(snapshot) {
       var exists = foundPresent(title, data);
 
       if (exists == true) {
-        alert("This title already exists!");
+        alert("This title already exists! Please edit the existing record or create a new one.");
         return;
       } else {
         annotations.push({
