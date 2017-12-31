@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "annotator",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "An Electron app for documenting annotations",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -9,17 +9,16 @@
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "annotation",
+    "Firebase"
   ],
-  "author": "GitHub",
+  "author": "Scott Kipp",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^1.7.9"
   },
   "dependencies": {
-    "@material/form-field": "^0.27.0"
+    "@material/form-field": "^0.27.0",
+    "firebase": "^4.8.1"
   }
 }
