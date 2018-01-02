@@ -26,7 +26,7 @@ del = function(key, title) {
 
 genLinks = function(key, title) {
     var links = '';
-    links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">Edit</a> | ';
+    links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">View</a> | ';
     links += '<a href="javascript:del(\'' + key + '\',\'' + title + '\')">Delete</a>';
     return links;
 };
@@ -53,7 +53,8 @@ tablePut = function addTable(data) {
     heading[0] = "Title"
     heading[1] = "Authors"
     heading[2] = "Year"
-    heading[3] = "Key"
+    heading[3] = "Keywords"
+    heading[4] = "View/Update"
 
     //TABLE COLUMNS
     var tr = document.createElement('TR');
@@ -82,9 +83,9 @@ tablePut = function addTable(data) {
       tr.appendChild(yearCell);
       tableBody.appendChild(tr);
 
-      var keyCell = document.createElement('td');
-      keyCell.textContent = "View | Edit | Delete";
-      tr.appendChild(keyCell);
+      var keywordsCell = document.createElement('td');
+      keywordsCell.textContent = entry.keywords;
+      tr.appendChild(keywordsCell);
       tableBody.appendChild(tr);
 
       var linksCell = document.createElement('td');

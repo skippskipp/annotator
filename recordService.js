@@ -32,6 +32,8 @@ annotations.once('value', function(snapshot) {
       var title = document.getElementById('title').value;
       var authors = document.getElementById('authors').value;
       var year = document.getElementById('year').value;
+      var keywords = document.getElementById('keywords').value;
+      var summary = document.getElementById('annotation').value;
       var exists = foundPresent(title, data);
 
       if (exists == true) {
@@ -41,7 +43,9 @@ annotations.once('value', function(snapshot) {
         annotations.push({
             "title": title,
             "authors": authors,
-            "year": year
+            "year": year,
+            "keywords": keywords,
+            "summary": summary
         }).then(function(){
           document.location.href = 'records.html';
         });
@@ -63,18 +67,7 @@ annotations.once('value', function(snapshot) {
 //     }
 // }
 //
-function buildEndPoint (key) {
-	return new Firebase('https://annotator-dc18f.firebaseio.com/annotations/' + key);
-}
 
-function del(key, title) {
-    var response = confirm("Are certain about removing \"" + title + "\" from the list?");
-    if (response == true) {
-        // build the FB endpoint to the annotation
-        var deleteAnnotation = buildEndPoint(key);
-        deleteAnnotation.remove();
-    }
-}
 
 
 

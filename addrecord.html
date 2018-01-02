@@ -32,7 +32,6 @@
               <div class="mdc-text-field__bottom-line"></div>
             </div>
           </div>
-        </br>
           <div class="mdc-form-field">
             <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
               <input id="authors" type="text" class="mdc-text-field__input">
@@ -45,12 +44,29 @@
         </br>
           <div class="mdc-form-field">
             <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="keywords" type="text" class="mdc-text-field__input">
+              <label for="keywords" class="mdc-text-field__label">
+                KEYWORDS
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
               <input id="year" type="number" name="year" min="1900" max="2017" class="mdc-text-field__input">
               <label for="year" class="mdc-text-field__label">
                 YEAR
               </label>
               <div class="mdc-text-field__bottom-line"></div>
             </div>
+          </div>
+        </br>
+        <div class="mdc-text-field mdc-text-field--textarea">
+          <textarea id="annotation"
+              class="mdc-text-field__input"
+              rows="8"
+              cols="40"
+              placeholder="ANNOTATION"></textarea>
           </div>
         </fieldset>
 
