@@ -15,10 +15,10 @@ snapshotToArray = function(snapshot) {
     return returnArr;
 };
 
+//Removes a specified item from the DB, reloads page.
 del = function(key, title) {
-    var response = confirm("Are certain about removing \"" + title + "\" from the list?");
+    var response = confirm("Are you sure you want to delete \"" + title + "\" ?");
     if (response == true) {
-        // build the FB endpoint to the annotation
         annotations.child(key).remove();
         location.reload();
     }
@@ -29,14 +29,6 @@ genLinks = function(key, title) {
     links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">View</a> | ';
     links += '<a href="javascript:del(\'' + key + '\',\'' + title + '\')">Delete</a>';
     return links;
-};
-
-refreshUI = function(list) {
-    var lis = '';
-    for (var i = 0; i < list.length; i++) {
-        lis += '<li data-key="' + list[i].key + '">' + list[i].name + ' [' + genLinks(list[i].key, list[i].name) + ']</li>';
-    };
-    document.getElementById('favMovies').innerHTML = lis;
 };
 
 //Receives the Firebase data snapshot as an array and builds the HTML table with values of interest.
