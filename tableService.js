@@ -15,6 +15,30 @@ snapshotToArray = function(snapshot) {
     return returnArr;
 };
 
+del = function(key, title) {
+    var response = confirm("Are certain about removing \"" + title + "\" from the list?");
+    if (response == true) {
+        // build the FB endpoint to the annotation
+        annotations.child(key).remove();
+        location.reload();
+    }
+}
+
+genLinks = function(key, title) {
+    var links = '';
+    links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">Edit</a> | ';
+    links += '<a href="javascript:del(\'' + key + '\',\'' + title + '\')">Delete</a>';
+    return links;
+};
+
+refreshUI = function(list) {
+    var lis = '';
+    for (var i = 0; i < list.length; i++) {
+        lis += '<li data-key="' + list[i].key + '">' + list[i].name + ' [' + genLinks(list[i].key, list[i].name) + ']</li>';
+    };
+    document.getElementById('favMovies').innerHTML = lis;
+};
+
 //Receives the Firebase data snapshot as an array and builds the HTML table with values of interest.
 tablePut = function addTable(data) {
 
@@ -29,6 +53,7 @@ tablePut = function addTable(data) {
     heading[0] = "Title"
     heading[1] = "Authors"
     heading[2] = "Year"
+    heading[3] = "Key"
 
     //TABLE COLUMNS
     var tr = document.createElement('TR');
@@ -43,6 +68,7 @@ tablePut = function addTable(data) {
     //TABLE ROWS
     for (entry of data) {
       var tr = document.createElement('TR');
+      tr.setAttribute('data-key', entry.key);
       var titleCell = document.createElement('td');
       titleCell.textContent = entry.title;
       tr.appendChild(titleCell);
@@ -55,13 +81,27 @@ tablePut = function addTable(data) {
       yearCell.textContent = entry.year;
       tr.appendChild(yearCell);
       tableBody.appendChild(tr);
+
+      var keyCell = document.createElement('td');
+      keyCell.textContent = "View | Edit | Delete";
+      tr.appendChild(keyCell);
+      tableBody.appendChild(tr);
+
+      var linksCell = document.createElement('td');
+      linksCell.innerHTML = genLinks(entry.key, entry.title);
+      tr.appendChild(linksCell);
+      tableBody.appendChild(tr);
       }
 
     myTableDiv.appendChild(table);
     };
 
 //Calls the `tablePut` function on the Firebase snapshot.
-annotations.on('value', function(snapshot) {
+annotations.once('value', function(snapshot) {
     var data = snapshotToArray(snapshot);
     tablePut(data);
 });
+
+function buildEndPoint (key) {
+	return new Firebase('https://annotator-dc18f.firebaseio.com/annotations/' + key);
+}

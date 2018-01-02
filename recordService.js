@@ -52,6 +52,30 @@ annotations.once('value', function(snapshot) {
 
 
 
+// function edit(key, mvName) {
+//     var movieName = prompt("Update the movie name", mvName); // to keep things simple and old skool :D
+//     if (movieName && movieName.length > 0) {
+//         // build the FB endpoint to the item in movies collection
+//         var updateMovieRef = buildEndPoint(key);
+//         updateMovieRef.update({
+//             name: movieName
+//         });
+//     }
+// }
+//
+function buildEndPoint (key) {
+	return new Firebase('https://annotator-dc18f.firebaseio.com/annotations/' + key);
+}
+
+function del(key, title) {
+    var response = confirm("Are certain about removing \"" + title + "\" from the list?");
+    if (response == true) {
+        // build the FB endpoint to the annotation
+        var deleteAnnotation = buildEndPoint(key);
+        deleteAnnotation.remove();
+    }
+}
+
 
 
 
