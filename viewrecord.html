@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Annotator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+<nav class="sidebar">
+  <i id="add" class="material-icons">add</i> </br>
+  <i id="download" class="material-icons">file_download</i> </br>
+  <i id="home" class="material-icons">home</i>
+</nav>
+<main>
+  <body class="mdc-typography" onload="pull()">
+      <form action="#" id="newrecord-form">
+        <fieldset>
+          <legend>Annotation</legend>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="title" type="text" class="mdc-text-field__input">
+              <label for="title" class="mdc-text-field__label mdc-text-field__label--float-above">
+                TITLE
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="authors" type="text" class="mdc-text-field__input">
+              <label for="authors" class="mdc-text-field__label mdc-text-field__label--float-above">
+                AUTHORS
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+        </br>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="keywords" type="text" class="mdc-text-field__input">
+              <label for="keywords" class="mdc-text-field__label mdc-text-field__label--float-above">
+                KEYWORDS
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+          <div class="mdc-form-field">
+            <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+              <input id="year" type="number" name="year" min="1900" max="2017" class="mdc-text-field__input">
+              <label for="year" class="mdc-text-field__label mdc-text-field__label--float-above">
+                YEAR
+              </label>
+              <div class="mdc-text-field__bottom-line"></div>
+            </div>
+          </div>
+        </br>
+        <div class="mdc-text-field mdc-text-field--textarea">
+          <textarea id="annotation"
+              class="mdc-text-field__input"
+              rows="8"
+              cols="40"
+              placeholder="ANNOTATION"></textarea>
+          </div>
+        </fieldset>
+
+        <button class="mdc-button
+                       mdc-button--raised
+                       mdc-ripple-surface"
+                id="saveBtn"
+                data-mdc-auto-init="MDCRipple">
+          SAVE
+        </button>
+        <button
+                class="mdc-button
+                       mdc-button--raised
+                       mdc-ripple-surface"
+                id="resetBtn"
+                data-mdc-auto-init="MDCRipple">
+          DELETE
+        </button>
+    </form>
+</main>
+  <script>
+    require('./renderer.js')
+    require('./navService.js')
+    require('./editrecordService.js')
+  </script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script>window.mdc.autoInit();</script>
+</html>

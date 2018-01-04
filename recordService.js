@@ -54,28 +54,6 @@ annotations.once('value', function(snapshot) {
     });
 });
 
-
-
-// function edit(key, mvName) {
-//     var movieName = prompt("Update the movie name", mvName); // to keep things simple and old skool :D
-//     if (movieName && movieName.length > 0) {
-//         // build the FB endpoint to the item in movies collection
-//         var updateMovieRef = buildEndPoint(key);
-//         updateMovieRef.update({
-//             name: movieName
-//         });
-//     }
-// }
-//
-
-
-
-
-
-
-
-
-
 //use set() for updating e.g. userRef.update({timestamp: 123456789});
 //var timestamp = (new Date()).getTime();
 // usersRef.update({

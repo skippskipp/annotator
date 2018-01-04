@@ -24,9 +24,16 @@ del = function(key, title) {
     }
 }
 
+edit = function (key) {
+    return 'viewrecord.html/' + key + '#'
+}
+
+
 genLinks = function(key, title) {
     var links = '';
-    links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">View</a> | ';
+    // links += '<a href="javascript:edit(\'' + key + '\',\'' + title + '\')">View</a> | ';
+    links += '<a href=viewrecord.html#' + key + '>View</a> | ';
+    // links += '<a href=viewrecord.html>View</a> | ';
     links += '<a href="javascript:del(\'' + key + '\',\'' + title + '\')">Delete</a>';
     return links;
 };
@@ -94,7 +101,3 @@ annotations.once('value', function(snapshot) {
     var data = snapshotToArray(snapshot);
     tablePut(data);
 });
-
-function buildEndPoint (key) {
-	return new Firebase('https://annotator-dc18f.firebaseio.com/annotations/' + key);
-}
