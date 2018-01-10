@@ -97,6 +97,7 @@ tablePut = function addTable(data) {
     };
 
 //Calls the `tablePut` function on the Firebase snapshot.
+//consider reforming to onChildAdded - loads all data first, then listens for new ones
 annotations.once('value', function(snapshot) {
     var data = snapshotToArray(snapshot);
     tablePut(data);

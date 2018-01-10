@@ -3,6 +3,14 @@
   --mdc-theme-secondary: #1B6B12;
 }
 
+#login-form {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
 #login-form > button {
   background-color: var(--mdc-theme-secondary);
   margin-top: 8px;
