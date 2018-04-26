@@ -1,6 +1,6 @@
 # electron-annotation
 
-This is an Electron app using Firebase for authentication and storage.
+Annotator is an Electron app using Firebase for authentication and storage. Create annotated citations (or other records for your db) and push them to Firebase for reference. Configurable for multi-client use.
 
 ## To Use
 
