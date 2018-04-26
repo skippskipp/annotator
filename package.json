@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com//skippskipp/annotator",
   "keywords": [
     "Electron",
     "annotation",
@@ -15,7 +15,7 @@
   "author": "Scott Kipp",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.7.9"
+    "electron": "^1.7.12"
   },
   "dependencies": {
     "@material/form-field": "^0.27.0",
